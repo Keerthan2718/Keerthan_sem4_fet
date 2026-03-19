@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html>
-	<head>
-    	<title>My portfolio</title>
-    </head>
- 	<body bgcolor="lightblue">
-    <h2>KEERTHAN</h2>
-    <h4>Computer science student</h4>
-    <p>Interesting in solving a real world problems and enjoying by solving the problems</p>
-   
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My College Project</title>
     
-	<a href="../index.html">Back to Home</a>
-    </body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+        h1 { color: #2c3e50; }
+        p { color: #7f8c8d; }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #2980b9; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hello, World!</h1>
+        <p>This is my first HTML, CSS, and JS project for college.</p>
+        <button onclick="greetUser()">Click Me</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function greetUser() {
+            const msg = document.getElementById('message');
+            msg.innerHTML = "Great job! Your JS is working. 🚀";
+            msg.style.color = "#27ae60";
+            msg.style.fontWeight = "bold";
+        }
+    </script>
+
+</body>
 </html>
