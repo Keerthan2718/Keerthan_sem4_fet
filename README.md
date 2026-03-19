@@ -1,1 +1,1 @@
-This repository contains my initial work for the Web Development module in my Second Year CSE course. The focus of this project is to demonstrate a solid understanding of Semantic HTML5 without the use of external styling (CSS) or scripting (JavaScript).
+This repository contains my initial work for the Web Development module in my Second Year CSE course. The focus of this project is to demonstrate a solid understanding of Semantic HTML5 with the use of external styling (CSS) or scripting (JavaScript).
