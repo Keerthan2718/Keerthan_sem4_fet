@@ -12,7 +12,7 @@ roleButton.addEventListener('click', function() {
     if (newRole !== null && newRole !== "") {
         
         // 3. Update the text on the page
-        role-Display.textContent = newRole;
+        roleDisplay.textContent = newRole;
 
         // 4. Alert to confirm it worked
         alert("Access Granted. Role updated to: " + newRole);
