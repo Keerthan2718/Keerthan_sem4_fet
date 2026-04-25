@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Skill Matrix | Editor</title>
+    <style>
+        /* --- CSS STYLING --- */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .matrix-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #334155;
+        }
+
+        h2 {
+            color: #38bdf8;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        ol { padding-left: 20px; }
+
+        li { margin-bottom: 20px; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        .skill-item {
+            background: #0f172a;
+            margin: 5px 0;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #38bdf8;
+        }
+
+        .edit-btn {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .edit-btn:hover {
+            transform: scale(1.1);
+            background: #7dd3fc;
+        }
+
+        .nav-links {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin: 8px 0;
+        }
+
+        .nav-links a:hover { color: #38bdf8; }
+    </style>
+</head>
+<body>
+
+    <div class="matrix-box">
+        <h2>Technical Skill Matrix</h2>
+
+        <ol>
+            <li>
+                <strong>Software Development</strong>
+                <ul>
+                    <li class="skill-item">
+                        <span id="s1">C (Systems Programming & Sockets)</span>
+                        <button class="edit-btn" onclick="modifySkill('s1')">Edit</button>
+                    </li>
+                    <li class="skill-item">
+                        <span id="s2">Java (Object-Oriented Development)</span>
+                        <button class="edit-btn" onclick="modifySkill('s2')">Edit</button>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Database Systems</strong>
+                <ul>
+                    <li class="skill-item">
+                        <span id="s3">SQL (Relational Database Management)</span>
+                        <button class="edit-btn" onclick="modifySkill('s3')">Edit</button>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="nav-links">
+            <a href="four.html">← Back to Page four</a>
+            <a href="six.html">Go to Assignment six →</a>
+            <a href="https://Keerthan2718.github.io/Keerthan_sem4_fet/Assignment/html_with_css/five_css.html">View CSS Version</a>
+        </div>
+    </div>
+
+    <script>
+        function modifySkill(id) {
+            // 1. Target the specific span using the ID passed to the function
+            const skillTarget = document.getElementById(id);
+            const currentText = skillTarget.textContent;
+
+            // 2. Open a prompt to ask for new input
+            let updatedText = prompt("Enter the updated skill details:", currentText);
+
+            // 3. Logic to handle the result
+            if (updatedText === null) {
+                alert("Update cancelled.");
+            } else if (updatedText.trim() === "") {
+                alert("Error: Skill description cannot be empty.");
+            } else {
+                // Change the text on the screen
+                skillTarget.textContent = updatedText;
+                alert("Success! System updated to: " + updatedText);
+            }
+        }
+    </script>
+
+</body>
+</html>
