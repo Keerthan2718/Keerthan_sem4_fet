@@ -1,6 +1,6 @@
 body {
     background-color: #0a0a0a;
-    color: #00ff41; /* Classic Matrix/Terminal Green */
+    color: #00ff41;
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     justify-content: center;
@@ -14,6 +14,9 @@ body {
     border: 1px solid #00ff41;
     padding: 50px;
     box-shadow: 0 0 15px #00ff41;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;
 }
 
 .btn-action {
@@ -26,7 +29,19 @@ body {
     margin-top: 20px;
 }
 
-.btn-action:hover {
-    background: #00ff41;
-    color: #0a0a0a;
+/* Styling the link section */
+.footer-link {
+    margin-top: 40px; /* Pushes it away from the button */
+}
+
+.footer-link a {
+    color: #00ff41;
+    text-decoration: none;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.footer-link a:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
