@@ -1,22 +1,24 @@
-// 1. Select the button and the role text
-const updateButton = document.getElementById('updateBtn');
+// Grab the button and the role heading
+const roleButton = document.getElementById('changeRoleBtn');
 const roleDisplay = document.getElementById('role-display');
 
-// 2. Add an "Event Listener" to the button
-updateButton.addEventListener('click', function() {
+// Listen for the click
+roleButton.addEventListener('click', function() {
     
-    // First Alert: Warning the user
-    alert("ATTENTION: Unauthorized access to role settings detected. Verifying identity...");
+    // 1. Open the prompt and store the user's answer in a variable called 'newRole'
+    let newRole = prompt("CRITICAL SYSTEM UPDATE: Enter your new designation:");
 
-    // Second Alert: The change action
-    alert("Identity Verified. Changing role to: Senior Forensic Lead.");
+    // 2. Check if the user actually typed something (and didn't hit cancel)
+    if (newRole !== null && newRole !== "") {
+        
+        // 3. Update the text on the page
+        roleDisplay.textContent = newRole;
 
-    // 3. Update the DOM (The HTML content)
-    roleDisplay.textContent = "Senior Forensic Lead";
-    
-    // Optional: Change the color of the text via JS to show it's updated
-    roleDisplay.style.color = "#ff3e3e"; 
-
-    // Final Confirmation
-    alert("System update complete.");
+        // 4. Alert to confirm it worked
+        alert("Access Granted. Role updated to: " + newRole);
+        
+    } else {
+        // If they hit cancel or left it blank
+        alert("Update Cancelled. Current credentials retained.");
+    }
 });
