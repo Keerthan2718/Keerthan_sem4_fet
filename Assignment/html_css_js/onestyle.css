@@ -1,43 +1,34 @@
 body {
-    background-color: #0a0a0a;
+    background: #0a0a0a;
     color: #00ff41;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    font-family: monospace; /* 'Courier New' is the default for monospace */
+    margin: 40px auto;
+    max-width: 400px; /* Centering without flexbox */
+    text-align: center;
 }
 
 .container {
-    text-align: center;
     border: 1px solid #00ff41;
-    padding: 50px;
-    box-shadow: 0 0 15px #00ff41;
-    display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center;
+    padding: 30px;
 }
 
 .btn-action {
-    background: transparent;
-    color: #00ff41;
-    border: 1px solid #00ff41;
+    background: none;
+    color: inherit; /* Inherits #00ff41 from body */
+    border: 1px solid currentColor;
     padding: 10px 20px;
     cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
     margin-top: 20px;
 }
 
-/* Styling the link section */
 .footer-link {
-    margin-top: 40px; /* Pushes it away from the button */
+    margin-top: 40px;
 }
 
 .footer-link a {
-    color: #00ff41;
+    color: inherit;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 12px;
     opacity: 0.7;
 }
 
