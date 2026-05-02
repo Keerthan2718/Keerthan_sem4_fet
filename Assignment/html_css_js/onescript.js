@@ -15,6 +15,7 @@ roleButton.addEventListener('click', function() {
         roleDisplay.textContent = newRole;
 
         // 4. Alert to confirm it worked
+        debugger;
         alert("Access Granted. Role updated to: " + newRole);
         
     } else {
