@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Selection Form</title>
+	<style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
+        form { background: #fff; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        fieldset { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        legend { font-weight: bold; padding: 0 10px; color: #333; }
+        div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="tel"], input[type="email"], select, textarea {
+            width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+        }
+        .inline-group { display: flex; gap: 15px; align-items: center; }
+        .inline-group label { display: inline; font-weight: normal; }
+        button { background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:hover { background: #218838; }
+    </style>
+    </head>
+<body>
+
+    <form id="courseForm">
+        <h2>Student Course Selection</h2>
+
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div>
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required 
+                       pattern="[A-Za-z\s]{3,}" 
+                       title="Name should be at least 3 characters long and contain only letters.">
+            </div>
+            <div>
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required 
+                       pattern="[0-9]{10}" 
+                       title="Please enter a valid 10-digit phone number.">
+            </div>
+            <div>
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required 
+                       title="Please enter a valid email address (e.g., name@example.com).">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+            
+            <label>Interested In:</label>
+            <div class="inline-group">
+                <input type="radio" id="Sports" name="interest" value="Sports" checked>
+                <label for="Sports">Sports</label>
+                <input type="radio" id="Studies" name="interest" value="Studies">
+                <label for="Studies">Studies</label>
+            </div>
+
+            <label>Choose Courses:</label>
+            <div class="inline-group">
+                <input type="checkbox" id="c1" name="course" value="HTML">
+                <label for="c1">HTML</label>
+                <input type="checkbox" id="c2" name="course" value="CSS">
+                <label for="c2">CSS</label>
+                <input type="checkbox" id="c3" name="course" value="JavaScript">
+                <label for="c3">JavaScript</label>
+            </div>
+
+            <div>
+                <label for="semester">Select Semester:</label>
+                <select id="semester" name="semester">
+                    <option value="Curent">2024</option>
+                    <option value="spring">Spring 2025</option>
+                    <option value="summer">Summer 2025</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Feedback</legend>
+            <label for="feedback">Additional Comments / Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" placeholder="How did you feel after seeimg the campus?"></textarea>
+        </fieldset>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+    <div id="summary" style="margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 8px; display: none;">
+    
+</div>
+
+   <script>
+    const form = document.getElementById('courseForm');
+    const summaryDiv = document.getElementById('summary');
+
+    // 1. Real-time alert for validation errors
+    form.addEventListener('change', (e) => {
+        if (!e.target.checkValidity()) {
+            alert("Invalid Entry: " + e.target.title);
+        }
+    });
+
+    // 2. Handle the Submit event
+    form.onsubmit = function(e) {
+        // Prevent the page from refreshing
+        e.preventDefault();
+
+        // Get values from text inputs
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const semester = document.getElementById('semester').value;
+        const feedback = document.getElementById('feedback').value;
+
+        // Get value from Radio Buttons (Interest)
+        const interest = document.querySelector('input[name="interest"]:checked').value;
+
+        // Get values from Checkboxes (Courses)
+        const selectedCourses = [];
+        const checkboxes = document.querySelectorAll('input[name="course"]:checked');
+        checkboxes.forEach((checkbox) => {
+            selectedCourses.push(checkbox.value);
+        });
+
+        // 3. Create the summary HTML
+        summaryDiv.innerHTML = `
+            <h3>Selection Summary</h3>
+            <hr>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Interest Type:</strong> ${interest}</p>
+            <p><strong>Courses Selected:</strong> ${selectedCourses.join(', ') || 'None'}</p>
+            <p><strong>Semester:</strong> ${semester}</p>
+            <p><strong>Feedback:</strong> ${feedback || 'No feedback provided'}</p>
+        `;
+
+        // 4. Show the summary box
+        summaryDiv.style.display = "block";
+        
+        // Scroll to the summary automatically
+        summaryDiv.scrollIntoView({ behavior: 'smooth' });
+    };
+</script>
+
+</body>
+</html>
